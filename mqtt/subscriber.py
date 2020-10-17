@@ -36,8 +36,8 @@ def on_message(mosq, obj, msg):
     # print(msg.topic + " tak match " + str(msg.qos) + " " + str(msg.payload))
 
     mycursor = mydb.cursor()
-    val = (mycursor.lastrowid, date.today())
-    sql = "INSERT INTO data (id,created_at) VALUES (%s, %s)"
+    val = (mycursor.lastrowid, int(msg.qos), date.today())
+    sql = "INSERT INTO data (id,point,created_at) VALUES (%s, %s, %s)"
     mycursor.execute(sql, val)
     mydb.commit()
 
