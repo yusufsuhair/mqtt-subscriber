@@ -22,8 +22,8 @@ from datetime import date
 
 mydb = mysql.connector.connect(
     host="localhost",
-    user="root",
-    password="",
+    user="pi",
+    password="yusuf",
     database="iot"
 )
 
@@ -35,9 +35,10 @@ def on_message(mosq, obj, msg):
     # $SYS/broker/bytes/#
     # print(msg.topic + " tak match " + str(msg.qos) + " " + str(msg.payload))
 
+    print(str(msg.qos));
     mycursor = mydb.cursor()
     val = (mycursor.lastrowid, int(msg.qos), date.today())
-    sql = "INSERT INTO data (id,point,created_at) VALUES (%s, %s, %s)"
+    sql = "INSERT INTO iot (id,pts,created_at) VALUES (%s, %s, %s)"
     mycursor.execute(sql, val)
     mydb.commit()
 
@@ -46,5 +47,5 @@ mqttc = mqtt.Client()
 
 mqttc.on_message = on_message
 mqttc.connect("localhost", 1883, 60)
-mqttc.subscribe("iot", 0)
+mqttc.subscribe("testTopic", 0)
 mqttc.loop_forever()
