@@ -47,7 +47,7 @@ mqttc.message_callback_add("house/bulb1/msgsatu", on_message_msgs)
 mqttc.message_callback_add("house/bulb2/msgdua", on_message_bytes)
 mqttc.on_message = on_message
 mqttc.connect("localhost", 1883, 60)
-mqttc.subscribe("house/bulb2", 0)
+mqttc.subscribe("house/bulb2", 2)
 
 mqttc.loop_forever()
 
