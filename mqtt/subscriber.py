@@ -35,10 +35,22 @@ def on_message(mosq, obj, msg):
     # $SYS/broker/bytes/#
     # print(msg.topic + " tak match " + str(msg.qos) + " " + str(msg.payload))
 
+<<<<<<< HEAD
     print(str(msg.qos));
     mycursor = mydb.cursor()
     val = (mycursor.lastrowid, int(msg.qos), date.today())
     sql = "INSERT INTO iot (id,pts,created_at) VALUES (%s, %s, %s)"
+=======
+    payload = str(msg.payload)
+    payload = payload.translate({ord("'"): None})
+    payload = payload.translate({ord("b"): None})
+    payload = payload.replace(' ', '')
+    # payload.translate({ord("'"): None})
+    print(int(payload)-20)
+    mycursor = mydb.cursor()
+    val = (mycursor.lastrowid, int(payload), date.today())
+    sql = "INSERT INTO data (id,pts,created_at) VALUES (%s, %s, %s)"
+>>>>>>> 3c026cf98f83baaa6dbef3c42ad4f3bc24599d5f
     mycursor.execute(sql, val)
     mydb.commit()
 
@@ -47,5 +59,9 @@ mqttc = mqtt.Client()
 
 mqttc.on_message = on_message
 mqttc.connect("localhost", 1883, 60)
+<<<<<<< HEAD
 mqttc.subscribe("testTopic", 0)
+=======
+mqttc.subscribe("testTopic")
+>>>>>>> 3c026cf98f83baaa6dbef3c42ad4f3bc24599d5f
 mqttc.loop_forever()
