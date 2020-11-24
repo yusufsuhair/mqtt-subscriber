@@ -4,3 +4,8 @@ mqtt-subscriber is responsible to receive the values from publisher or in the ot
 
 1. Clone repository.
 2. Run 'mqtt/subscriber.py -d'.
+
+Resources:
+1. https://github.com/yusufsuhair/mqtt-gui
+2. https://github.com/yusufsuhair/mqtt-subscriber
+3. https://github.com/yusufsuhair/mqtt-publisher
