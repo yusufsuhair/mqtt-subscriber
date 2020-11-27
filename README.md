@@ -6,6 +6,6 @@ mqtt-subscriber is responsible to receive the values from publisher or in the ot
 2. Run 'mqtt/subscriber.py -d'.
 
 Resources:
-1. https://github.com/yusufsuhair/mqtt-gui
+1. https://github.com/yusufsuhair/mqtt-backend-frontend
 2. https://github.com/yusufsuhair/mqtt-subscriber
 3. https://github.com/yusufsuhair/mqtt-publisher
