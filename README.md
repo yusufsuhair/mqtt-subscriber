@@ -5,6 +5,8 @@ mqtt-subscriber is responsible to receive the values from publisher or in the ot
 1. Clone repository.
 2. Run 'python mqtt/subscriber.py -d'.
 
+P/S: You may use the mqtt/subscriber-template.py for reference
+
 Resources:
 1. https://github.com/yusufsuhair/mqtt-backend-frontend
 2. https://github.com/yusufsuhair/mqtt-subscriber
